@@ -1,8 +1,11 @@
 from django.urls import path
-from inicio.views import inicio, nosotros, shop
+from inicio.views import inicio, shop, crear, resena, producto
 
 urlpatterns = [
     path('', inicio, name="inicio"),
-    path('nosotros', nosotros, name="nosotros"),
-    path('shop', shop, name="shop")
+    path('producto', producto, name="producto"),
+    path('shop', shop, name="shop"),
+    path('crear', crear, name="crear"),
+    path('Reseña', resena, name="resena"),
     ]
+    

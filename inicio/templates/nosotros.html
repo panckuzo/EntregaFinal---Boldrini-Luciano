@@ -16,3 +16,11 @@
 <br>
 
 {% endblock section %} 
+
+{% block form_subcriptor %}
+{% csrf_token %}
+<form method="post" action="">
+    {% csrf_token %}
+    {{ formulario}}
+</form>
+{% endblock form_subcriptor %}

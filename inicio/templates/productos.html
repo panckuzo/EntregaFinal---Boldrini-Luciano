@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title_head %}
+<title>Productos</title>
+{% endblock title_head %}
+
+{% block section %}
+<form action="">
+    {{formulario}}
+    <input type="submit" value="Buscar">
+</form>
+
+{% if listado_de_productos %}
+<ul>
+    {% for productos in listado_de_productos%}
+    <li>{{Productos}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron Productos.</p>
+{% endif %}
+{% endblock section %}
+
+

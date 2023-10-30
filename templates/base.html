@@ -25,8 +25,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href= {% url "inicio" %} >Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href= {% url "nosotros" %} >Nosotros</a></li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item"><a class="nav-link" href= {% url "producto" %} >Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href= {% url "crear" %} >Crear Producto / Proveedor</a></li>
+                        <li class="nav-item"><a class="nav-link" href= {% url "resena" %} >Tu opinion</a></li>
+                        {% comment %} <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href= {% url "shop" %} role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href= {% url "shop" %}>Todos los Productos</a></li>
@@ -34,7 +36,7 @@
                                 <li><a class="dropdown-item" href="#!">Productos Populares </a></li>
                                 <li><a class="dropdown-item" href="#!">Novedades</a></li>
                             </ul>
-                        </li>
+                        </li> {% endcomment %}
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
@@ -76,10 +78,9 @@
                 <!-- Newsletter Form -->
                 <div class="col-12 col-lg-6 col-xl-5">
                     <div class="newsletter-form mb-100">
-                        <form action="#" method="post">
-                            <input type="email" name="email" class="nl-email" placeholder="E-mail">
-                            <input type="submit" value="Subscribite">
-                        </form>
+                        {% block form_subcriptor %}
+                        
+                        {% endblock form_subcriptor %}
                     </div>
                 </div>
             </div>
