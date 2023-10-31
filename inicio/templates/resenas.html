@@ -5,15 +5,24 @@
 {% endblock title_head %}
 
 {% block section %}
-<br>
-<h5 class="fw-bolder text-center">Tu opinion es muy importante para nosotros</h5>
-<br>
-<p class="text-center fw-bolder">Dejanos una reseña sobre un producto,puntos a mejorar o cualquier cosa que quieras decirnos. </p>
-<p class="text-center fw-bolder">Te lo vamos a agradecer!</p>
-<br>
-<form method="post">
-    {% csrf_token %}
-    {{ formulario_resena.as_p }}
-    <button type="submit">Enviar Reseña</button>
-</form>
+<div class="text-center">
+    <br>
+    <h5 class="fw-bolder text-center">Tu opinion es muy importante para nosotros</h5>
+    <br>
+    <p class="text-center fw-bolder">Dejanos una reseña sobre un producto,puntos a mejorar o cualquier cosa que quieras decirnos. </p>
+    <p class="text-center fw-bolder">Te lo vamos a agradecer!</p>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ formulario}}
+        <button type="submit">Enviar Reseña</button>
+    </form>
+    
+    <h5 class="fw-bolder text-center">Reseñas de clientes</h5>
+    {% for resena in resenas %}
+        <p class="text-center fw-bolder">Nombre: {{ resena.nombre_de_cliente }} <br> Opinion: {{ resena.resena }} <br> Calificacion: ({{ resena.calificacion }})</p>
+    {% endfor %}
+</div>
+
+
 {% endblock section %}

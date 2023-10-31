@@ -1,11 +1,11 @@
 from django.urls import path
-from inicio.views import inicio, shop, crear, resena, producto
+from inicio.views import inicio, shop, Productos, CrearResena, Crear, Mostrar, Subscriptores, Subscriptor
 
 urlpatterns = [
-    path('', inicio, name="inicio"),
-    path('producto', producto, name="producto"),
+    path('', Subscriptor, name="inicio"),
+    path('producto', Mostrar, name="producto"),
     path('shop', shop, name="shop"),
-    path('crear', crear, name="crear"),
-    path('Reseña', resena, name="resena"),
+    path('crear', Crear, name="crear"),
+    path('reseña', CrearResena, name="resena"),
     ]
     

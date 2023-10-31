@@ -10,4 +10,13 @@
     {{formulario_prod}}
     <input type="submit" value="Crear">
 </form>
+<br>
+<br>
+<br>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{formulario_proveedor}}
+    <input type="submit" value="Crear">
+</form>
+
 {% endblock section %}
