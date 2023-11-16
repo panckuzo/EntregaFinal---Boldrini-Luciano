@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Actualizar Producto</title>
+{% endblock title_head %}
+
+{% block section %}
+<h5>Actualizar Producto</h5>
+<form  method="POST" action={% url "actualizar_producto" %} enctype= 'multipart/form-data'>
+    {% csrf_token %}
+    <table>
+        {{formulario.media}}
+        {{formulario}}
+    </table>
+    <input type="submit" value="Actualizar">
+
+{% endblock section %}

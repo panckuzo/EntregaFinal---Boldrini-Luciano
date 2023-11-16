@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Iniciar Sesion</title>
+{% endblock title_head %}
+
+{% block section %}
+<div class="text-center">
+<div class="container d-flex justify-content-center align-items-center" >
+        <form   method="POST" action="">
+            {% csrf_token %}
+            <br>
+            <table>
+                {{ form }}
+            </table>
+            <br>
+            <div class="d-flex justify-content-center">
+                <input type="submit"  value="Iniciar Sesion">
+            </div>
+        </form>
+</div>
+<br>
+{% endblock section %}

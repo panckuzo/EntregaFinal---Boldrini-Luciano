@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Mi Perfil</title>
+{% endblock title_head %}
+{% block section %}
+<h5 class= "text-center">Mi Perfil</h5>
+<br>
+<div class= "text-center"> 
+    
+    <a href= "{% url 'editar_perfil' %}" >Editar Perfil</a>
+    <a href= "{% url 'cambiar_password' %}" >Cambiar Contraseña</a> 
+</div>
+{% endblock section %}
+

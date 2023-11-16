@@ -25,25 +25,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href= {% url "inicio" %} >Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href= {% url "producto" %} >Productos / Proveedores</a></li>
-                        <li class="nav-item"><a class="nav-link" href= {% url "crear" %} >Crear Producto / Proveedor</a></li>
-                        <li class="nav-item"><a class="nav-link" href= {% url "resena" %} >Tu opinion</a></li>
-                        {% comment %} <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href= {% url "shop" %} role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href= {% url "shop" %}>Todos los Productos</a></li>
+                                <li><a class="dropdown-item" href= {% url "crear_producto" %}>Publicar</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Productos Populares </a></li>
-                                <li><a class="dropdown-item" href="#!">Novedades</a></li>
+                                <li><a class="dropdown-item" href= {% url "producto" %}>Todos los Productos </a></li>
                             </ul>
-                        </li> {% endcomment %}
+                        </li> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown"  role="button" data-bs-toggle="dropdown" aria-expanded="false">Proveedores</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href= {% url "crear_proveedor" %}>Publicar</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="provvedor">Todos los Proveedores </a></li>
+                            </ul>
+                        </li> 
+                        <li class="nav-item"><a class="nav-link" href= {% url "resena" %} >Tu opinion</a></li>
+                        {% if not request.user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href={% url "registro" %}>Registrarse</a></li>
+                        <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href={% url "inicio_sesion" %}>Iniciar Sesion</a></button>
+                        {% else %}
+                        <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href={% url "cerrar_sesion" %}>Cerrar Sesion</a></button>
+                        <li class="nav-item"><a class="nav-link" href={% url "perfil" %}>Mi Pefil</a></li>
+                        {% endif %}
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Carrito                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
                 </div>
             </div>
         </nav>

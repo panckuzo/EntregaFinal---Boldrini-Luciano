@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Proveedores</title>
+{% endblock title_head %}
+
+{% block section %}
+<br>
+<div class="w-75 mx-auto d-flex justify-content-center">
+    <h5 class="fw-bolder">- Proveedores -</h5>
+    <form action="{% url "producto" %}">
+        <input type="text" name="proveedor_nombre" placeholder="nombre del proveedor...">
+        <input type="submit" value="Buscar">
+    </form>
+    <ul>
+        {% for proveedor in listado_proveedores %}
+        <li>{{proveedor}} | <a href={% url "actualizar_proveedor" proveedor.id %}>Actualizar</a> | <a href={% url "eliminar_proveedor" proveedor.id %}>Eliminar</a> | <a href={% url "detalle_proveedor" proveedor.id %}>Detalle</a></li>
+        {% endfor %}
+        {% if not listado_proveedores %}
+            <p>No se encontraron proveedores con ese nombre.</p>
+        {% endif %}
+    </ul>
+</div>
+{% endblock section %}

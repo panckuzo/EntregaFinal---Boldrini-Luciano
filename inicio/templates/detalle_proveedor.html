@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Detalle Proveedor</title>
+{% endblock title_head %}
+
+{% block section %}
+<div class="w-75 mx-auto justify-content-center">
+<h5 class= "text-center">Detalle del Proveedor</h5>
+<br>
+    <div class="text-center">
+    <li>Nombre: {{proveedor.proveedor_nombre}} </li>
+    <li>Productos:  {{proveedor.proveedor_productos | safe}} </li>
+    <li>Telefono: {{proveedor.proveedor_telefono}} </li>
+    <li>Email: {{proveedor.proveedor_mail}} </li>
+    <li>Direccion:  {{proveedor.proveedor_direccion}} </li>  
+    </div>
+</div>   
+<br>
+{% endblock section %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Actualizar Proveedor</title>
+{% endblock title_head %}
+
+{% block section %}
+<h5>Actualizar Proveedor</h5>
+<form  method="POST" action="">
+    {% csrf_token %}
+    <table>
+        {{formulario.media}}
+        {{formulario}}
+    </table>
+    <input type="submit" value="Actualizar">
+
+{% endblock section %}

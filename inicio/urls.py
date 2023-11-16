@@ -1,11 +1,20 @@
 from django.urls import path
-from inicio.views import inicio, shop, Productos, CrearResena, Crear, Mostrar, Subscriptores, Subscriptor
+from django.conf import settings
+from django.conf.urls.static import static
+from inicio.views import  CrearResena, CrearProducto, CrearProveedor,  MostrarProducto, MostrarProveedor, Subscriptor, EliminarProducto, EditarProducto, DetalleProducto, EliminarProveedor, EditarProveedor, DetalleProveedor
 
 urlpatterns = [
     path('', Subscriptor, name="inicio"),
-    path('producto', Mostrar, name="producto"),
-    path('shop', shop, name="shop"),
-    path('crear', Crear, name="crear"),
-    path('reseña', CrearResena, name="resena"),
-    ]
+    path('producto/', MostrarProducto, name="producto"),
+    path('crear_producto/', CrearProducto, name="crear_producto"),
+    path('producto/<int:producto_id>/', DetalleProducto, name='detalle_producto'),
+    path('producto/<int:producto_id>/eliminar/', EliminarProducto, name='eliminar_producto'),
+    path('producto/<int:producto_id>/actualizar/', EditarProducto, name='actualizar_producto'),
+    path('proveedor/', MostrarProveedor.as_view(), name="proveedor"),
+    path('crear_proveedor/', CrearProveedor.as_view(), name="crear_proveedor"),
+    path('proveedor/<int:proveedor_pk>/', DetalleProveedor.as_view(), name='detalle_proveedor'),
+    path('proveedor/<int:proveedor_pk>/eliminar/', EliminarProveedor.as_view(), name='eliminar_proveedor'),
+    path('proveedor/<int:proveedor_pk>/actualizar/', EditarProveedor.as_view(), name='actualizar_proveedor'),
+    path('reseña/', CrearResena, name="resena"),
+    ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     

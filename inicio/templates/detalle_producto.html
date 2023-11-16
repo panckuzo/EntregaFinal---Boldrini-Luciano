@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Detalle Producto</title>
+{% endblock title_head %}
+
+{% block section %}
+<div class="w-75 mx-auto justify-content-center">
+<h5 class= "text-center">Detalle del Producto</h5>
+<br>
+    <div class="text-center">
+    <li>Nombre: {{producto.nombre}} </li>
+    <li>Categoria:  {{producto.categoria}} </li>
+    <br>
+    {% if  %}
+    {% comment %} <img src="{{request.Producto.imagen.url}}" alt="Product Image"> {% endcomment %}
+    <img src="{{Producto.imagen.url}}" alt="Product Image">
+    {% endif %}
+    <br>
+    <li>Descricion: {{producto.descripcion | safe}} </li>
+    <li>Precio: {{producto.precio}} </li>
+    <li>Stock:  {{producto.stock}} </li>
+    <li>Fecha de publicacion:  {{producto.fecha}} </li>
+    </div>
+</div>
+<br>
+{% endblock section %}
