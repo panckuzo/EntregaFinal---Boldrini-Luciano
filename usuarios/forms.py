@@ -33,8 +33,6 @@ class EditarPerfilForm(UserChangeForm):
         model = User
         fields = ['email', 'first_name', 'last_name', 'telefono', 'direccion', 'ciudad', 'provincia', 'fecha_nacimiento', 'avatar']
     
-from django import forms
-from django.contrib.auth.forms import PasswordChangeForm
 
 class CambiarPasswordForm(PasswordChangeForm):
     old_password = forms.CharField(label='Contraseña actual', widget=forms.PasswordInput)

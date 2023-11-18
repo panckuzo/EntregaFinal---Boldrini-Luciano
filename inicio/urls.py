@@ -15,9 +15,9 @@ urlpatterns = [
     
     path('proveedor/', MostrarProveedor.as_view(), name = 'proveedor'),
     path('crear_proveedor/', CrearProveedor.as_view(), name='crear_proveedor'),
-    path('proveedor/<int:proveedor_pk>/', DetalleProveedor.as_view(), name='detalle_proveedor'),
-    path('proveedor/<int:proveedor_pk>/eliminar/', EliminarProveedor.as_view(), name='eliminar_proveedor'),
-    path('proveedor/<int:proveedor_pk>/actualizar/', EditarProveedor.as_view(), name='actualizar_proveedor'),
+    path('proveedor/<int:pk>/', DetalleProveedor.as_view(), name='detalle_proveedor'),
+    path('proveedor/<int:pk>/eliminar/', EliminarProveedor.as_view(), name='eliminar_proveedor'),
+    path('proveedor/<int:pk>/actualizar/', EditarProveedor.as_view(), name='actualizar_proveedor'),
     
     path('reseña/', CrearResena, name='resena'),
     

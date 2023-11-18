@@ -5,13 +5,17 @@
 {% endblock title_head %}
 
 {% block section %}
-<h5>Actualizar Proveedor</h5>
+<br>
+<h5 class="text-center">Actualizar Proveedor</h5>
+<br>
+<div class="w-75 mx-auto d-flex justify-content-center">
 <form  method="POST" action="">
     {% csrf_token %}
     <table>
-        {{formulario.media}}
-        {{formulario}}
+        {{form.media}}
+        {{form}}
     </table>
     <input type="submit" value="Actualizar">
-
+</div>
+<br>
 {% endblock section %}

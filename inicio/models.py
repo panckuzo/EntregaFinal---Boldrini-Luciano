@@ -20,14 +20,14 @@ class Productos(models.Model):
 
         
 class Proveedor(models.Model):
-    proveedor_nombre = models.CharField(max_length=50)
-    proveedor_productos= RichTextField()
-    proveedor_telefono = models.IntegerField(max_length=30)
-    proveedor_mail = models.EmailField()
-    proveedor_direccion = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=50)
+    productos= RichTextField()
+    telefono = models.IntegerField(max_length=30)
+    mail = models.EmailField()
+    direccion = models.CharField(max_length=30)
     
     def __str__(self):
-        return f'{self.id} - Nombre: {self.proveedor_nombre}'
+        return f'{self.id} - Nombre: {self.nombre}'
     
 class Resena(models.Model):
     nombre_de_cliente= models.CharField(max_length=50)

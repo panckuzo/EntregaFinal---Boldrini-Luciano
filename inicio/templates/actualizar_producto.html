@@ -5,7 +5,11 @@
 {% endblock title_head %}
 
 {% block section %}
-<h5>Actualizar Producto</h5>
+<br>
+<h5 class="text-center">Actualizar Producto</h5>
+<br>
+<div class="w-75 mx-auto d-flex justify-content-center">
+
 <form  method="POST" action="" enctype= 'multipart/form-data'>
     {% csrf_token %}
     <table>
@@ -13,5 +17,6 @@
         {{formulario}}
     </table>
     <input type="submit" value="Actualizar">
-
+</div>
+<br>
 {% endblock section %}

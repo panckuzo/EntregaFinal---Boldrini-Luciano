@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Eliminar Proveedor</title>
+{% endblock title_head %}
+
+{% block section %}
+<h5>Eliminar </h5>
+<br>
+<form  method="POST" action="" enctype= 'multipart/form-data'>
+    {% csrf_token %}
+    Desea eliminar el Provedor {{proveedor.nombre}} ?
+    
+    <input type="submit" value="Confirmar">
+</form>
+    
+
+{% endblock section %}

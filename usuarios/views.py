@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import PasswordChangeView
@@ -19,16 +18,16 @@ def Registro(request):
             
             formulario.save()
             
-            return redirect('editar_perfil')
+            return redirect('inicio_sesion')
             
     return render(request, 'cuentas/registro.html', {'form': formulario})
 
 def InicioSesion(request):
     
-    formulario = AuthenticationForm()
+    formulario = MiAuthenticationForm()
     
     if request.method == 'POST':
-        formulario = AuthenticationForm(request, data=request.POST)
+        formulario = MiAuthenticationForm(request, data=request.POST)
         if formulario.is_valid():
             usuario = formulario.cleaned_data.get('username')
             contrasena = formulario.cleaned_data.get('password')

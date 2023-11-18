@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect
-from inicio.models import Subscriptores, Productos, Proveedor,Resena
-from inicio.forms import Form_Subscriptores, Form_Productos, Form_Resena, Form_Proveedor, Editar_Producto_Form, Editar_Proveedor_Form
 from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from inicio.models import Subscriptores, Productos, Proveedor,Resena
+from inicio.forms import Form_Subscriptores, Form_Productos, Form_Resena, Form_Proveedor, Editar_Producto_Form, Editar_Proveedor_Form
 
 
 
@@ -76,7 +77,7 @@ def MostrarProducto(request):
     
 
     if producto_a_buscar:
-        listado_productos = Productos.objects.filter(producto_nombre__icontains=producto_a_buscar)
+        listado_productos = Productos.objects.filter(nombre__icontains=producto_a_buscar)
     else:
         listado_productos = Productos.objects.all()
         
@@ -146,12 +147,13 @@ def CrearResena(request):
 class CrearProveedor(LoginRequiredMixin, CreateView):
     model = Proveedor
     template_name = "crear_proveedor.html"
-    fields = ['proveedor_nombre', 'proveedor_productos', 'proveedor_telefono', 'proveedor_mail', 'proveedor_direccion']
+    fields = ['nombre', 'productos', 'telefono', 'mail', 'direccion']
     success_url = reverse_lazy('proveedor')
 
     
 class MostrarProveedor(ListView):
     model = Proveedor
+    context_object_name = 'listado_de_proveedores'
     template_name = 'proveedor.html'
     
     def get_queryset(self):
@@ -166,7 +168,7 @@ class MostrarProveedor(ListView):
 class EditarProveedor(LoginRequiredMixin, UpdateView):
     model = Proveedor
     template_name = "actualizar_proveedor.html"
-    fields = ['proveedor_productos', 'proveedor_telefono', 'proveedor_mail', 'proveedor_direccion']
+    fields = ['productos', 'telefono', 'mail', 'direccion']
     success_url = reverse_lazy('proveedor')
 
 

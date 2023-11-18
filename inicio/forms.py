@@ -15,7 +15,7 @@ class Form_Productos(forms.Form):
     
     
 class Buscar_Producto(forms.Form):
-    producto_nombre = forms.CharField(max_length=30, required=False) 
+    nombre = forms.CharField(max_length=30, required=False) 
     
 class Form_Proveedor(forms.Form):
     nombre = forms.CharField(max_length=50)
@@ -25,7 +25,7 @@ class Form_Proveedor(forms.Form):
     direccion = forms.CharField(max_length=50)
     
 class Buscar_Proveedor(forms.Form):
-    proveedor_nombre = forms.CharField(max_length=30, required=False) 
+    nombre = forms.CharField(max_length=30, required=False) 
     
 class Editar_Producto_Form(forms.Form):
     descripcion = RichTextFormField()
