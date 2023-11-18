@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Crear</title>
+<title>Publicar Producto</title>
 {% endblock title_head %}
 
 {% block section %}
@@ -20,19 +20,5 @@
 </div>
 <br>
 <br>
-<br>
-<div class="w-75 mx-auto d-flex justify-content-center">
-<form method="POST" action="">
-    {% csrf_token %}
-    <table >
-        {{formulario.media}}
-        {{formulario_proveedor}}
-    </table>
-    
-<input type="submit" value="Crear">
-</form>
-<br>
 
-</div>
-<br>
 {% endblock section %}

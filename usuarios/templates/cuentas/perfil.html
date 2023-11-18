@@ -3,13 +3,29 @@
 {% block title_head %}
 <title>Mi Perfil</title>
 {% endblock title_head %}
+
 {% block section %}
+<br>
+<br>
 <h5 class= "text-center">Mi Perfil</h5>
 <br>
-<div class= "text-center"> 
-    
-    <a href= "{% url 'editar_perfil' %}" >Editar Perfil</a>
-    <a href= "{% url 'cambiar_password' %}" >Cambiar Contraseña</a> 
+<div class= "fw-bolder text-center"> 
+    <ul class="list-unstyled">
+        <li>Nombre de usuario: {{request.user.username}}</li>
+        <li>Nombre: {{request.user.first_name}}</li>
+        <li>Apellido: {{request.user.last_name}}</li>
+        <li>Email: {{request.user.email}}</li>
+        <li>Telefono: {{request.user.datos.telefono}}</li>
+        <li>Direccion: {{request.user.datos.direccion}}</li>
+        <li>Ciudad: {{request.user.datos.ciudad}}</li>
+        <li>Provincia: {{request.user.datos.provincia}}</li>
+        <li>Fecha de nacimiento: {{request.user.datos.fecha_nacimiento}}</li>
+        <li>Avatar: {{request.user.datos.avatares.url}}</li>
+    </ul>
+    <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href={% url "editar_perfil" %}>Editar Perfil</a></button>
+    <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href={% url "cambiar_password" %}>Cambiar Contraseña</a></button>   
 </div>
+<br>
+<br>
 {% endblock section %}
 

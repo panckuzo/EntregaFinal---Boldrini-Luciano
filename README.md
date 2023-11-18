@@ -1,13 +1,12 @@
-# Tercera-Pre-entrega---Boldrini
-Tercera Pre-entrega del curso de Python en CoderHouse
-
-Este es un proyecto web creado con Django que finalmente sera un E-commerce
+# Entrega Final---Boldrini Luciano
+Entrega Final curso de Python con Django 
 
 Modelos:
 - Subcriptores
 - Productos
 - Provedores
 - Reseñas
+- User
 
 Formulario:
 - Subcriptores
@@ -20,9 +19,13 @@ Formulario:
 
 ## Funcionalidades
 - Inicio: En el se encuentra el formulario de suscriptores en la página de inicio para recopilar correos electrónicos de los usuarios y realizar marketing por correo electrónico con las personas que deseen recibir noticias, promociones y descuentos.
-- Lista de productos y proveedores: La lista de proveedores no se mostrará en la versión final, solo servirá para consultas de administradores y trabajadores de la marca. Los productos en la versión final se mostrarán con imágenes y un botón de comprar para agregar al carrito. Además, se puede realizar la búsqueda y filtrado de productos y proveedores por nombre.
-- Crear productos/Proveedores: Esta vista solo está destinada a cumplir con la entrega (no se mostrará en la versión final ya que se supone que los clientes no crean productos ni proveedores y se harán desde la página oculta de administración, donde solo tendrán acceso personas autorizadas).
+-Productos: permite publicar productos y ver la lista de productos. Si se esta logeado se puede publicar, editar y eliminar productos. Sin logear solo se ver y buscar producos y el detalle de los mismos.
+-Proveedores: permite publicar proveedores y ver la lista de proveedores publicados. Si se esta logeado se puede publicar, editar y eliminar provedores. Sin logear solo se ver y buscar producos y el detalle de los mismos
 - Tu opinión: En esta pestaña, los clientes pueden dejar reseñas de productos o cualquier comentario que deseen.
+- Registrarse
+- Ver perfil, donde se accede a editar el msismo y cambio de contraseña
+- Login
+-Logout
 
 
 ## Instalación
@@ -37,9 +40,7 @@ Formulario:
 
 - Models.py: Define los modelos de datos de la aplicación.
 - Forms.py: Define los formularios de la aplicación.
-- Views.py: Define las vistas de la aplicación.
+- Views.py: Define las vistas de la aplicación. (con funciones y clases basadas en vistas)
 - Urls.py: Define las rutas de la aplicación.
-- Inicio.html: Es la plantilla que se utiliza como página de inicio, muestra información de la empresa y el formulario de suscriptores.
-- Productos.html: Es la plantilla que se utiliza para mostrar los productos y proveedores.
-- Crear.html: Es la plantilla que se utiliza para crear los productos y proveedores.
-- Resena.html: Es la plantilla que se utiliza para dejar y mostrar reseñas de productos y opiniones.
+- Templates: plantilla predefinida para generar contenido dinámico
+

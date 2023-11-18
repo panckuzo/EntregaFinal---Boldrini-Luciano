@@ -1,27 +1,49 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Productos / Proveedores</title>
+<title>Productos</title>
 {% endblock title_head %}
 
 {% block section %}
 <br>
+<br>
 <div class="w-75 mx-auto d-flex justify-content-center">
+    <div>
     <h5 class="fw-bolder">- Productos - </h5>
     <form action="{% url "producto" %}">
         <input type="text" name="producto_nombre" placeholder="nombre del producto...">
         <input type="submit" value="Buscar">
     </form>
+    </div>  
+    <div>
     <ul>
         {% for producto in listado_productos %}
-        <li>{{producto}} | <a href={% url "actualizar_producto" producto.id %}>Actualizar</a> | <a href={% url "eliminar_producto" producto.id %}>Eliminar</a> | <a href={% url "detalle_producto" producto.id %}>Detalle</a></li>
+        <li class="card">
+            {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}" alt="" width="300" height="300">
+            {% endif %}
+
+            
+            <div class="card-body p-4">
+                <div class="text-center">
+                    <h5 class="fw-bolder">{{ producto.nombre }}</h5>
+                    ${{ producto.precio }}
+                    <div>
+                    <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href="{% url "actualizar_producto" producto.id%}">Actualizar</a></button>
+                    <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href="{% url "detalle_producto" producto.id %}">Detalle</a></button>
+                    <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href="{% url "eliminar_producto" producto.id %}">Eliminar</a></button>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </div>
         {% endfor %}
         {% if not listado_productos %}
             <p>No se encontraron productos con ese nombre.</p>
         {% endif %}
     </ul>
 </div>
-
+<br>
 {% endblock section %}
 
 

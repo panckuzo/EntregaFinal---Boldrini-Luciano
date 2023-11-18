@@ -7,9 +7,10 @@
 {% block section %}
 
 <div class="container d-flex justify-content-center align-items-center" >
-    <form method="POST" novalidate>
-        {% csrf_token %}
+    
+    <form method="POST" action= {% url "registro" %}>
         <h2>Registrarse</h2>
+        {% csrf_token %}
         <table>
             {{ form }}
         </table>

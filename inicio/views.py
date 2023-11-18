@@ -16,9 +16,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def inicio(request):
     return render(request, "inicio.html", {})
 
-# def nosotros(request):
-#     return render(request, "nosotros.html")
 
+def About_me(request):
+    return render(request, 'about_me.html', {})
 
 
 def Subscriptor(request):
@@ -36,13 +36,17 @@ def Subscriptor(request):
 def producto(request):
     return render(request, "productos.html")
 
+def proveedor(request):
+    return render(request, "proveedor.html")
+
+
 def crear(request):
     return render(request, "crear.html")
 
 def resena(request):
     return render(request, "resenas.html")
 
-# @login_required
+@login_required
 def CrearProducto(request):
     if request.method == 'POST':
         formulario = Form_Productos(request.POST)
@@ -60,7 +64,7 @@ def CrearProducto(request):
             producto = Productos(nombre=nombre,  categoria=categoria,descripcion=descripcion,  precio=precio,stock=stock, fecha=fecha, imagen= imagen)
             producto.save()
 
-            return redirect('crear_producto') 
+            return redirect('producto') 
         else:
             return render(request, 'crear_producto.html', {'formulario': formulario})
 
@@ -94,21 +98,21 @@ def EditarProducto(request, producto_id):
         if formulario.is_valid():
             info_nueva = formulario.cleaned_data
 
-            producto_a_actualizar.producto_descripcion = info_nueva.get('descripcion')
-            producto_a_actualizar.producto_precio = info_nueva.get('precio')
-            producto_a_actualizar.producto_stock = info_nueva.get('stock')
-            producto_a_actualizar.producto_imagen = info_nueva.get('imagen')
+            producto_a_actualizar.descripcion = info_nueva.get('descripcion')
+            producto_a_actualizar.precio = info_nueva.get('precio')
+            producto_a_actualizar.stock = info_nueva.get('stock')
+            producto_a_actualizar.imagen = info_nueva.get('imagen')
             
             producto_a_actualizar.save()
-            return redirect('productos')
+            return redirect('producto')
         else:
             return render(request, 'actualizar_producto.html', {'formulario': formulario})
     else:
         formulario = Editar_Producto_Form(initial={
-            'descripcion': producto_a_actualizar.producto_descripcion,
-            'precio': producto_a_actualizar.producto_precio,
-            'stock': producto_a_actualizar.producto_stock,
-            'imagen':producto_a_actualizar.producto_imagen 
+            'descripcion': producto_a_actualizar.descripcion,
+            'precio': producto_a_actualizar.precio,
+            'stock': producto_a_actualizar.stock,
+            'imagen':producto_a_actualizar.imagen 
         })
     return render(request, 'actualizar_producto.html', {'formulario': formulario})
 
@@ -139,16 +143,15 @@ def CrearResena(request):
 
 
 # ----------------------------- CLASES BASADAS EN VISTAS ------------------------------------
-
 class CrearProveedor(LoginRequiredMixin, CreateView):
     model = Proveedor
     template_name = "crear_proveedor.html"
     fields = ['proveedor_nombre', 'proveedor_productos', 'proveedor_telefono', 'proveedor_mail', 'proveedor_direccion']
     success_url = reverse_lazy('proveedor')
+
     
 class MostrarProveedor(ListView):
     model = Proveedor
-    context_object_name = 'listado_de_Proveedores'
     template_name = 'proveedor.html'
     
     def get_queryset(self):
@@ -179,47 +182,5 @@ class EliminarProveedor(LoginRequiredMixin, DeleteView):
     
     
 
-
-
-
-
-
-
-# @login_required
-# def Eliminar_Proveedor(request, proveedor_id):
-#     proveeedor_a_eliminar = Proveedor.objects.get(id=proveedor_id)
-#     proveeedor_a_eliminar.delete()
-#     return redirect("producto")
-
-# @login_required
-# def Editar_Proveedor(request, proveedor_id):
-#     proveedor_a_actualizar = Proveedor.objects.get(id=proveedor_id)
-    
-#     if request.method == "POST":
-#         formulario = Editar_Proveedor_Form(request.POST)
-#         if formulario.is_valid():
-#             info_nueva = formulario.cleaned_data
-
-#             proveedor_a_actualizar.proveedor_productos = info_nueva.get('productos')
-#             proveedor_a_actualizar.proveedor_telefono = info_nueva.get('telefono')
-#             proveedor_a_actualizar.proveedor_mail = info_nueva.get('mail')
-#             proveedor_a_actualizar.proveedor_direccion = info_nueva.get('direccion')
-            
-#             proveedor_a_actualizar.save()
-#             return redirect('proveedor')
-#         else:
-#             return render(request, 'actualizar_proveedor.html', {'formulario': formulario})
-#     else:
-#         formulario = Editar_Producto_Form(initial={
-#             'productos': proveedor_a_actualizar.proveedor_productos,
-#             'telefono': proveedor_a_actualizar.proveedor_telefono,
-#             'mail': proveedor_a_actualizar.proveedor_mail,
-#             'direccion':proveedor_a_actualizar.proveedor_direccion 
-#         })
-#     return render(request, 'actualizar_proveedor.html', {'formulario': formulario})
-
-# def Detalle_Proveedor(request, proveedor_id):
-#     proveedor = Proveedor.objects.get(id=proveedor_id)
-#     return render(request, 'detalle_proveedor.html', {'proveedor': proveedor})
 
 

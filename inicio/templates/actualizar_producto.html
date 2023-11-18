@@ -6,7 +6,7 @@
 
 {% block section %}
 <h5>Actualizar Producto</h5>
-<form  method="POST" action={% url "actualizar_producto" %} enctype= 'multipart/form-data'>
+<form  method="POST" action="" enctype= 'multipart/form-data'>
     {% csrf_token %}
     <table>
         {{formulario.media}}

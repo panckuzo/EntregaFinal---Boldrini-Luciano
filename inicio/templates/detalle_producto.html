@@ -8,13 +8,12 @@
 <div class="w-75 mx-auto justify-content-center">
 <h5 class= "text-center">Detalle del Producto</h5>
 <br>
-    <div class="text-center">
+    <div class=" fw-bolder text-center">
     <li>Nombre: {{producto.nombre}} </li>
     <li>Categoria:  {{producto.categoria}} </li>
     <br>
-    {% if  %}
-    {% comment %} <img src="{{request.Producto.imagen.url}}" alt="Product Image"> {% endcomment %}
-    <img src="{{Producto.imagen.url}}" alt="Product Image">
+    {% if producto.imagen %}
+        <img src="{{ producto.imagen.url }}" alt="" width="300" height="300">
     {% endif %}
     <br>
     <li>Descricion: {{producto.descripcion | safe}} </li>

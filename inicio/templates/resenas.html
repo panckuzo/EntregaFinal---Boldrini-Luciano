@@ -26,14 +26,17 @@
         </form>
 </div>
 <br>
-<div class=" justify-content-center">
+<div class="justify-content-center w-80">
     <h5 class="fw-bolder text-center">Reseñas de clientes</h5>
+    <br>
+    
     {% for resena in resenas %}
         <p class="text-center fw-bolder">Nombre: {{ resena.nombre_de_cliente }}</p>
         <p class="text-center fw-bolder">Opinion:{{ resena.resena | safe }}</p>
         <p class="text-center fw-bolder">Calificacion: {{ resena.calificacion }}</p>
-        <p class="text-center">--------------------</p>
+        <p class="text-center fw-bolder">--------------------</p>
     {% endfor %}
+    
 </div>   
 
 

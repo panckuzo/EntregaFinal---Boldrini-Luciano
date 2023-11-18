@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Publicar Proveedor</title>
+{% endblock title_head %}
+
+{% block section %}
+
+<br>
+<div class="w-75 mx-auto d-flex justify-content-center">
+<form method="POST" action="crear_proveedor">
+    {% csrf_token %}
+    <table >
+        {{form.media}}
+        {{form}}
+    </table>
+    
+<input type="submit" value="Crear">
+</form>
+<br>
+
+</div>
+<br>
+{% endblock section %}
