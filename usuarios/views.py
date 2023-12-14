@@ -13,7 +13,7 @@ def Registro(request):
     formulario = CrearUsuarioForm()
     
     if request.method == 'POST':
-        formulario = CrearUsuarioForm(request.POST)
+        formulario = CrearUsuarioForm(request.POST,request.FILES)
         if formulario.is_valid():
             
             formulario.save()
@@ -50,7 +50,7 @@ def EditarPerfil(request):
     
 
     if request.method == 'POST':
-        formulario = EditarPerfilForm(request.POST, request.FILES, instance=request.user)
+        formulario = EditarPerfilForm(request.POST, request.FILES)
 
         if formulario.is_valid():
             

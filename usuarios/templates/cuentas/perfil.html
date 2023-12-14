@@ -20,7 +20,7 @@
         <li>Ciudad: {{request.user.datos.ciudad}}</li>
         <li>Provincia: {{request.user.datos.provincia}}</li>
         <li>Fecha de nacimiento: {{request.user.datos.fecha_nacimiento}}</li>
-        <li>Avatar: {{request.user.datos.avatares.url}}</li>
+        <li>Avatar:  <img src={{request.user.datos.avatar.url}} alt="avatar" height='100px'></li>
     </ul>
     <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href={% url "editar_perfil" %}>Editar Perfil</a></button>
     <button class="btn btn-outline-dark" type="submit"><a class="nav-link" href={% url "cambiar_password" %}>Cambiar Contraseña</a></button>   

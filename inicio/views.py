@@ -50,7 +50,7 @@ def resena(request):
 @login_required
 def CrearProducto(request):
     if request.method == 'POST':
-        formulario = Form_Productos(request.POST)
+        formulario = Form_Productos(request.POST, request.FILES)
         if formulario.is_valid():
             info_limpia = formulario.cleaned_data
 
